@@ -8,7 +8,6 @@ struct OUR_LISTSHARED_EXPORT Our_list
   unsigned int ID;
   Our_list * next;
 };
-
 //end of list:
 ///0 terminated: next pointer of last element is 0
 
@@ -26,16 +25,6 @@ void insert(Our_list* l1,Our_list * el);
 /// no return value
 /// input: item
 
-void append(Our_list* l1,int ID_value);
-///inserts a value at the end of the list
-/// no return value
-/// input: value
-
-void append(Our_list* l1,Our_list * el);
-///inserts a list item at the end of the list
-/// no return value
-/// input: item
-
 int insert(Our_list* l1,int ID_value,int itm_nr);
 ///inserts a value as itm_nr element of the list
 /// if the place does not exist: value will be appended
@@ -47,6 +36,16 @@ int insert(Our_list* l1,Our_list * el, int itm_nr);
 /// if the place does not exist: value will be appended
 /// return value: resulting item number
 /// input: value
+
+void append(Our_list* l1,int ID_value);
+///inserts a value at the end of the list
+/// no return value
+/// input: value
+
+void append(Our_list* l1,Our_list * el);
+///inserts a list item at the end of the list
+/// no return value
+/// input: item
 
 Our_list* connect(Our_list* l1,Our_list* l2);
 ///connects l2 to l1, l1 as first
