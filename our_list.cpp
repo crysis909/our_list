@@ -11,8 +11,7 @@ void insert(Our_list* l1,int ID_value) //Not tested
 
 void insert(Our_list* l1,Our_list * el) //Not tested
 {
-    el->next = li;
-
+    el->next = l1;
 }
 
 int insert(Our_list* l1,int ID_value,int itm_nr)
@@ -29,8 +28,16 @@ int insert(Our_list* l1,Our_list * el, int itm_nr)
 void append(Our_list* l1,int ID_value) //Not tested
 {
     Our_list *temp = new Our_list;
-    l1->next = temp;
     temp->ID = ID_value;
+
+    while(l1 != NULL)
+    {
+        if(l1 == NULL)
+            l1->next = temp;
+
+        l1 = l1->next;
+    }
+
 }
 
 
@@ -45,15 +52,28 @@ Our_list* connect(Our_list* l1,Our_list* l2)
 
 }
 
-Our_list* at(Our_list* l1, int n)
+Our_list* at(Our_list* l1, int n) //Not tested
 {
+    for(int x = 0; x < n; x++)
+    {
+        if(l1 == NULL)
+            return NULL;
 
+        l1 = l1->next;
+    }
+
+    return l1;
 }
 
 
-Our_list* last(Our_list *l1)
+Our_list* last(Our_list *l1) //Not tested
 {
+    while(l1->next != NULL)
+    {
+        l1 = l1->next;
+    }
 
+    return l1;
 }
 
 //Erase funct
@@ -88,8 +108,17 @@ int erase_last_n(Our_list* l1)
 
 
 //Other funct
-int length(Our_list* l1)
+int length(Our_list* l1) //Not tested
 {
+    int len;
+
+    while(l1 != NULL)
+    {
+        len++;
+        l1 = l1->next;
+    }
+
+    return len;
 
 }
 
