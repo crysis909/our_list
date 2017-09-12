@@ -53,16 +53,15 @@ Our_list* connect(Our_list* l1,Our_list* l2)
 }
 
 Our_list* at(Our_list* l1, int n) //Not tested
-{
-    for(int x = 0; x < n; x++)
+{    
+    Our_list* temp = l1;
+
+    for(int i=0; i<n; i++)
     {
-        if(l1 == NULL)
-            return NULL;
-
-        l1 = l1->next;
+        if(temp)
+            temp = temp->next;
     }
-
-    return l1;
+    return temp;
 }
 
 
