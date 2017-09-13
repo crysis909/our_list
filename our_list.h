@@ -63,9 +63,7 @@ void erase_all(Our_list* l1);
 
 void erase_last(Our_list* l1);
 ///erases last element
-///
-///
-///
+
 int erase_last_n(Our_list* l1);
 ///erases last n elements
 ///returns number of erased

@@ -4,9 +4,10 @@
 //Insert function
 void insert(Our_list* l1,int ID_value) //Not tested
 {
-    Our_list *temp; = new Our_list;
-    temp->next = l1;
-    temp->ID = ID_value;
+    Our_list *add = new Our_list;
+
+    add->next = l1;
+    add->ID = ID_value;
 }
 
 void insert(Our_list* l1,Our_list * el) //Not tested
@@ -124,7 +125,53 @@ int length(Our_list* l1) //Not tested
 
 bool xchange(Our_list* l1, int n1, int n2)
 {
+    //Pointer deklaration
+    Our_list* temp = l1;
+    Our_list* minus_a;
+    Our_list* minus_b;
+    Our_list* plus_a;
+    Our_list* plus_b;
+    Our_list* list_a;
+    Our_list* list_b;
 
+    //list_a und list_b herrausfinden
+
+    //Schleife um den Index n1 zu erreichen
+    for(int x=0; x<n1; x++)
+    {
+        if(temp)                    // == temp != null
+            temp = temp->next;
+        else
+            return false;           //Wert nicht vorhanden
+        if(x == n1-1)               //Hilfszeiger minus a
+            temp->next = minus_a;
+        if(x == n1+1)
+            temp->next = plus_a;    //Hilfszeiger plus a
+
+    }
+    temp = list_a;                  //Addresse von Index n1 in list_a speichern
+
+    //Schleife um den Index n2 zu erreichen
+    for(int x=0; x<n2; x++)
+    {
+        if(temp)                    // temp == temp != null
+            temp = temp->next;
+        else
+            return false;
+        if(x == n2-1)               //Hilfzeiger minus b
+            temp->next = minus_b;
+        if(x == n2+1)
+            temp->next = plus_b;    //Hilfszeiger plus b
+
+    }
+    temp = list_b;                  //Addresse von Index n2 in list_b speichern
+
+    //list_a und list_b tauschen
+    list_a->next = plus_b;
+    list_b->next = plus_a;
+    minus_a->next = list_b;
+    minus_b->next = list_a;
+    return true;
 }
 
 
