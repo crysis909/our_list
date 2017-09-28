@@ -1,3 +1,19 @@
+/**
+  for practising only!
+  c heinbach & 3a/bbkif 2017
+  prototypes for list management
+
+
+
+  changes log:
+  27.9.2017
+  modifying the input parameters for head of list
+  from read only to read/write
+  where it is necessary
+  **/
+
+
+
 #ifndef OUR_LIST_H
 #define OUR_LIST_H
 
@@ -15,56 +31,67 @@ struct OUR_LISTSHARED_EXPORT Our_list
 //declare functions
 
 
-void insert(Our_list* l1,int ID_value);
+void insert(Our_list* &l1,int ID_value);
 ///inserts a value on top of the list
 /// no return value
 /// input: value
+/// author: sevik
 
-void insert(Our_list* l1,Our_list * el);
+void insert(Our_list* &l1,Our_list * el);
 ///inserts a list item on top of the list
 /// no return value
 /// input: item
+/// author: lay
 
 void append(Our_list* l1,int ID_value);
 ///inserts a value at the end of the list
 /// no return value
 /// input: value
+/// author: daoud
 
 void append(Our_list* l1,Our_list * el);
 ///inserts a list item at the end of the list
 /// no return value
 /// input: item
+/// author: köck
 
-int insert(Our_list* l1,int ID_value,int itm_nr);
+int insert(Our_list* &l1,int ID_value,int itm_nr);
 ///inserts a value as itm_nr element of the list
 /// if the place does not exist: value will be appended
 /// return value: resulting item number
 /// input: value
+/// author: besic
 
-int insert(Our_list* l1,Our_list * el, int itm_nr);
+int insert(Our_list* &l1,Our_list * el, int itm_nr);
 ///inserts a list item as itm_nr element of the list
 /// if the place does not exist: value will be appended
 /// return value: resulting item number
 /// input: value
+/// author: gantumur
 
-Our_list* connect(Our_list* l1,Our_list* l1, Our_list* l2);
+Our_list* connect(Our_list* l1, Our_list* l2);
 ///connects l2 to l1, l1 as first
 ///returns beginn of resulting list
+/// author: buehler
 
-void erase_first(Our_list* l1);
+void erase_first(Our_list* &l1);
 ///erases first element
+/// author: zehnal
 
-int erase_first_n(Our_list* l1,int n);
+int erase_first_n(Our_list* &l1,int n);
 ///erases first n elements
 /// returns number of erased
+/// author: badamchian
 
-void erase_all(Our_list* l1);
+void erase_all(Our_list* &l1);
 ///erases all elements
+/// author: bashirova
 
-void erase_last(Our_list* l1);
+void erase_last(Our_list* &l1);
 ///erases last element
+/// author: niazbekova
 
-int erase_last_n(Our_list* l1);
+int erase_last_n(Our_list* &l1);
 ///erases last n elements
 ///returns number of erased
 /// author:
@@ -77,12 +104,12 @@ int length(Our_list* l1);
 ///returns number of elements in list
 /// author:
 
-bool xchange(Our_list* l1, int n1, int n2);
+bool xchange(Our_list* &l1, int n1, int n2);
 /// xchanges the elements number n1 and n2
 /// returns false, if one of the elements does not exist
+/// author: vaclavek
 
-
-Our_list* last(Our_list *l1);
+Our_list* last(Our_list* l1);
 ///returns pointer to last element
 /// author:
 
@@ -94,13 +121,13 @@ bool issorted_dec(Our_list *l1);
 ///returns true if the values of l1 are sorted greatest to least
 /// author:
 
-bool merge(Our_list *l1, Our_list* l2);
+bool merge(Our_list * &l1, Our_list* l2);
 ///merges the two lists l1,l2 - resulting list is l1
 ///only if both of them are sorted in the same direction
 /// returns true if merged
+/// author: ezazi
 
-
-bool merge(Our_list *l1, int ID_val);
+bool merge(Our_list *&l1, int ID_val);
 ///merges the ID_val into list l1
 ///only if l1 is sorted
 /// returns true if merged
