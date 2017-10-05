@@ -142,6 +142,8 @@ bool xchange(Our_list* &l1, int n1, int n2)
             plus_a = temp;
         if(temp != NULL)
             temp = temp->next;
+        else
+            return false;
     }
     temp = l1;
 
@@ -155,6 +157,8 @@ bool xchange(Our_list* &l1, int n1, int n2)
             plus_b = temp;
         if(temp != NULL)
             temp = temp->next;
+        else
+            return false;
     }
 
     list_a->next = plus_b;
